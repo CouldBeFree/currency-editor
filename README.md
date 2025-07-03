@@ -1,59 +1,76 @@
-# Vuetify (Default)
+# Конвертер валют (Currency Converter)
 
-This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
+Цей проект є веб-додатком для перегляду та редагування курсів валют, розробленим з використанням Vue 3 та Vuetify 3.
 
-## ❗️ Important Links
+## 🌟 Функціональність
 
-- 📄 [Docs](https://vuetifyjs.com/)
-- 🚨 [Issues](https://issues.vuetifyjs.com/)
-- 🏬 [Store](https://store.vuetifyjs.com/)
-- 🎮 [Playground](https://play.vuetifyjs.com/)
-- 💬 [Discord](https://community.vuetifyjs.com)
+- 📊 **Перегляд курсів валют**: Відображення актуальних курсів валют від Національного банку України.
+- 🔍 **Пошук курсів за датою**: Можливість вибрати дату та переглянути історичні курси валют.
+- ✏️ **Редагування курсів**: Можливість змінювати курси валют локально.
+- 📋 **Відстеження змін**: Окрема сторінка для перегляду змінених курсів валют.
+- 🔎 **Пошук по валютах**: Фільтрація валют за назвою, кодом та іншими параметрами.
 
-## 💿 Install
+## 🛠️ Технології
 
-Set up your project using your preferred package manager. Use the corresponding command to install the dependencies:
+- **Vue 3**: Прогресивний JavaScript фреймворк для створення користувацьких інтерфейсів.
+- **Vuetify 3**: Бібліотека компонентів Material Design для Vue.
+- **Vue Router**: Офіційний маршрутизатор для Vue.js.
+- **Axios**: HTTP-клієнт для виконання запитів до API.
+- **Vite**: Сучасний інструмент збірки для швидкої розробки.
 
-| Package Manager                                                | Command        |
-|---------------------------------------------------------------|----------------|
-| [yarn](https://yarnpkg.com/getting-started)                   | `yarn install` |
-| [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)     | `npm install`  |
-| [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
-| [bun](https://bun.sh/#getting-started)                        | `bun install`  |
+## 📋 Структура проекту
 
-After completing the installation, your environment is ready for Vuetify development.
+- **/src/api**: Модуль для роботи з API Національного банку України.
+- **/src/composables**: Повторно використовувані композиційні функції Vue.
+- **/src/constants**: Константи проекту, включаючи маршрути та заголовки таблиць.
+- **/src/pages**: Компоненти сторінок додатку.
+- **/src/router**: Конфігурація маршрутизації.
+- **/src/store**: Локальне сховище для управління зміненими курсами валют.
 
-## ✨ Features
+## 📱 Сторінки додатку
 
-- 🖼️ **Optimized Front-End Stack**: Leverage the latest Vue 3 and Vuetify 3 for a modern, reactive UI development experience. [Vue 3](https://v3.vuejs.org/) | [Vuetify 3](https://vuetifyjs.com/en/)
-- 🗃️ **State Management**: Integrated with [Pinia](https://pinia.vuejs.org/), the intuitive, modular state management solution for Vue.
-- 🚦 **Routing and Layouts**: Utilizes Vue Router for SPA navigation and vite-plugin-vue-layouts for organizing Vue file layouts. [Vue Router](https://router.vuejs.org/) | [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
-- ⚡ **Next-Gen Tooling**: Powered by Vite, experience fast cold starts and instant HMR (Hot Module Replacement). [Vite](https://vitejs.dev/)
-- 🧩 **Automated Component Importing**: Streamline your workflow with unplugin-vue-components, automatically importing components as you use them. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+1. **Головна** (`/`): Відображення поточних курсів валют.
+2. **Пошук курсу** (`/course-search`): Пошук курсів валют за обраною датою.
+3. **Змінені курси** (`/changed-course`): Перегляд локально змінених курсів валют.
+4. **Редагування валюти** (`/currency-edit/:code`): Сторінка для редагування курсу конкретної валюти.
 
-These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
+## 🚀 Встановлення та запуск
 
-## 💡 Usage
-
-This section covers how to start the development server and build your project for production.
-
-### Starting the Development Server
-
-To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
+### Встановлення залежностей
 
 ```bash
+npm install
+# або
+yarn install
+```
+
+### Запуск сервера розробки
+
+```bash
+npm run dev
+# або
 yarn dev
 ```
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+Додаток буде доступний за адресою [http://localhost:3000](http://localhost:3000).
 
-> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
-
-### Building for Production
-
-To build your project for production, use:
+### Збірка для виробництва
 
 ```bash
+npm run build
+# або
+yarn build
+```
+
+## 📝 API
+
+Додаток використовує API Національного банку України для отримання курсів валют:
+
+```
+https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=YYYYMMDD&json
+```
+
+де `YYYYMMDD` - дата у форматі рік-місяць-день (наприклад, 20250703).
 yarn build
 ```
 
