@@ -62,7 +62,6 @@
       </v-card-text>
     </v-card>
 
-    <!-- Date Picker Dialog -->
     <v-dialog
       v-model="dateDialog"
       max-width="400"
